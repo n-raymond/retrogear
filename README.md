@@ -11,7 +11,7 @@ Retrogear project.
 mount -o remount,rw /boot
 ```
 * Copy the content of the `boot.config` file into your recalbox
-  `/boot/config` file.
+  `/boot/config.txt` file.
 * Copy the content of the `recalbox.conf` file into your recalbox
   `~/recalbox.conf` file.
 
