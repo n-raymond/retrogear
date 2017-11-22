@@ -25,13 +25,13 @@ following command.
 
 This section describes how to connect Rpi0W pins to hardware or buttons.
 
-GPIO Pin | Connected to
--------- | ------------
-GPIO #18 | Right Audio Channel
-GPIO #13 | Left Audio Channel
-GPIO #22 | Volume + Button
-GPIO #23 | Volume - Button
-GPIO #2 | MCP-23017 SDA
+BCM | Pin Number | Connected to
+--- | ---------- | ------------
+GPIO #18 | Pin #12 | Right Audio Channel
+GPIO #13 | Pin #33 | Left Audio Channel
+GPIO #22 | Pin #15 | Volume + Button
+GPIO #23 | Pin #16 | Volume - Button
+GPIO #2 | Pin #3 | MCP-23017 SDA
 
 You can use this schema to find the matching pins on the Pi:
 
