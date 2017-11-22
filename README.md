@@ -20,6 +20,8 @@ following command.
 ./setup.sh
 ```
 
+* Restart RecalboxOS
+
 
 ## GPIO Branching
 
