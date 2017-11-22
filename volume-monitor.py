@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python2
 
 """
@@ -272,7 +273,9 @@ if __name__ == "__main__":
     print("Toggled mute to: {}".format(v.is_muted))
     EVENT.set()
   
-  # This callback runs in thanything if the knob is turned
+  # This callback runs in the background thread. All it does is put turn
+  # events into a queue and flag the main thread to process them. The
+  # queueing ensures that we won't miss anything if the knob is turned
   # extremely quickly.
   def on_turn(delta):
     QUEUE.put(delta)
@@ -302,7 +305,15 @@ if __name__ == "__main__":
   
   if gpioButton != None:
     debug("Volume button using pin {}".format(gpioButton))
-  thread will
+  
+  debug("Initial volume: {}".format(v.volume))
+
+  encoder = RotaryEncoder(GPIO_A, GPIO_B, callback=on_turn, buttonPin=GPIO_BUTTON, buttonCallback=on_press)
+  signal.signal(signal.SIGINT, on_exit)
+  
+  while True:
+    # This is the best way I could come up with to ensure that this script
+    # runs indefinitely without wasting CPU by polling. The main thread will
     # block quietly while waiting for the event to get flagged. When the knob
     # is turned we're able to respond immediately, but when it's not being
     # turned we're not looping at all.
