@@ -2,7 +2,7 @@
 
 set -e
 
-scp . root@recalbox:~/retrogear
+scp -r . root@recalbox:~/retrogear
 
 ssh -q root@recalbox "
     mount -o remount,rw /boot
