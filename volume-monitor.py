@@ -15,7 +15,7 @@ import time
 import subprocess
 
 
-DEBUG = True
+DEBUG = False
 
 
 # ======== #
@@ -71,15 +71,11 @@ class Volume:
         click, which is why we're doing simple string scanning and not regular
         expressions.
         """
+
         if output is None:
             output = self.amixer("get 'PCM'")
 
-        lines = output.readlines()
-
-        print(lines)
-        print(lines[-1])
-
-        last = lines[-1].decode('utf-8')
+        last = output[-1].decode('utf-8')
 
         # The last line of output will have two values in square brackets. The
         # first will be the volume (e.g., "[95%]") and the second will be the
@@ -122,7 +118,7 @@ class Volume:
         boundedVolume = self.restrictToBounds(newVolume)
         if(boundedVolume != self.volume):
             output = self.amixer("set 'PCM' unmute {}%".format(boundedVolume))
-            self.synchronize()
+            self.synchronize(output)
 
     def restrictToBounds(self, volume):
         """
@@ -134,6 +130,8 @@ class Volume:
             return VOLUME_MIN
         elif volume > VOLUME_MAX:
             return VOLUME_MAX
+        else:
+            return volume
 
     def amixer(self, cmd):
         """
@@ -144,7 +142,9 @@ class Volume:
         if code != 0:
             raise VolumeError("Unknown error")
             sys.exit(0)
-        return p.stdout
+
+        output = p.stdout.readlines()
+        return output
 
 
 
