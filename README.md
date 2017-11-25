@@ -27,16 +27,21 @@ following command.
 
 This section describes how to connect Rpi0W pins to hardware or buttons.
 
-BCM | Pin Number | Connected to
+Pin Number | BCM | Connected to
 --- | ---------- | ------------
-GPIO #18 | Pin #12 | Right Audio Channel
-GPIO #13 | Pin #33 | Left Audio Channel
-GPIO #22 | Pin #15 | Volume + Button
-GPIO #23 | Pin #16 | Volume - Button
-Ground | Pin #34 | Volume + Button
-Ground | Pin #34 | Volume - Button
-SDA #2 | Pin #3 | MCP-23017 SDA
-SCL #2 | Pin #5 | MCP-23017 SCL
+Pin #2 | 5V | Powerboost 500C 5V
+Pin #6 | Ground | Powerboost 500C GND
+Pin #3 | SDA #2 | MCP-23017 SDA
+Pin #5 | SCL #2 | MCP-23017 SCL
+Pin #9 | Ground | MCP-23017 A0
+Pin #9 | Ground | MCP-23017 A1
+Pin #9 | Ground | MCP-23017 A2
+Pin #12 | GPIO #18 | Right Audio Channel
+Pin #14 | Ground | Volume + Button
+Pin #14 | Ground | Volume - Button
+Pin #15 | GPIO #22 | Volume + Button
+Pin #16 | GPIO #23 | Volume - Button
+Pin #33 | GPIO #13 | Left Audio Channel
 
 You can use this schema to find the matching pins on the Pi:
 
