@@ -37,7 +37,7 @@ GPIO #2 | Pin #3 | MCP-23017 SDA
 
 You can use this schema to find the matching pins on the Pi:
 
-![GPIOs](https://www.element14.com/community/servlet/JiveServlet/previewBody/80667-102-2-338789/GPIO.png)
+![GPIOs](/images/raspberry-pi-pinout.png)
 
 
 
