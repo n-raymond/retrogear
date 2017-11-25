@@ -33,7 +33,10 @@ GPIO #18 | Pin #12 | Right Audio Channel
 GPIO #13 | Pin #33 | Left Audio Channel
 GPIO #22 | Pin #15 | Volume + Button
 GPIO #23 | Pin #16 | Volume - Button
+Ground | Pin #34 | Volume + Button
+Ground | Pin #34 | Volume - Button
 GPIO #2 | Pin #3 | MCP-23017 SDA
+
 
 You can use this schema to find the matching pins on the Pi:
 
